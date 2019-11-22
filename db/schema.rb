@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_071614) do
+ActiveRecord::Schema.define(version: 2019_11_22_050939) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -59,6 +59,14 @@ ActiveRecord::Schema.define(version: 2019_11_05_071614) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.string "permalink"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.integer "product_Id"
     t.string "ProductName"
@@ -67,7 +75,6 @@ ActiveRecord::Schema.define(version: 2019_11_05_071614) do
     t.string "Description"
     t.integer "Quantity"
     t.string "ProductDetails"
-    t.string "image"
     t.string "tracklist"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

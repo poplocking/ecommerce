@@ -1,3 +1,9 @@
-<%= render @product %>
-<h1>Product#show</h1>
-<p>Find me in app/views/product/show.html.erb</p>
+<h3><%= @product.ProductName %></h3>
+<% if @product.image.present? %>
+
+<div class="card-image">
+  <figure class="image is-4by3">
+  <%= image_tag url_for(@product.image)%>
+  </figure>
+</div>
+<% end %>

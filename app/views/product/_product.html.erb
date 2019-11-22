@@ -1,2 +1,11 @@
 <div class = "product">
-<p><%= product.ProductName %>s </p>
+<p><%= product.Price %>s </p>
+
+<% if product.image.present? %>
+
+<div class="card-image">
+  <figure class="image is-4by3">
+  <%= image_tag url_for(product.image)%>
+  </figure>
+</div>
+<% end %>
