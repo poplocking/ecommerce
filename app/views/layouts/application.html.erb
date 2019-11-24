@@ -23,6 +23,7 @@
 <%= form_with(url: search_results_product_index_path, method: "get", local: true) do %>
   <%= label_tag(:query, "Search for:") %>
   <%= text_field_tag(:query) %>
+  <%= select_tag  :query, options_for_select(["Boy", "Girl","All Groups"])%>
   <%= submit_tag("Search") %>
 <% end %>
     <%= yield %>
