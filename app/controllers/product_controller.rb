@@ -8,4 +8,9 @@ class ProductController < ApplicationController
   def show
     @product = Product.find(params[:id])
   end
+
+  def search_results
+    @query = params[:query]
+    @searchProduct = Product.where(ProductName: @query)
+  end
 end

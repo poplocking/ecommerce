@@ -10,6 +10,21 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <ul>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'About', permalink_path(permalink: 'about')%></li>
+          <li><%= link_to 'Contact', permalink_path(permalink: 'contact') %></li>
+        </ul>
+      </nav>
+  </header>
+
+<%= form_with(url: search_results_product_index_path, method: "get", local: true) do %>
+  <%= label_tag(:query, "Search for:") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+<% end %>
     <%= yield %>
   </body>
 </html>
