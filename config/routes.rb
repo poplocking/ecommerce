@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'categorys/show'
   get 'page/index'
   get 'page/show'
   get '/static/:permalink', to: 'page#permalink', as: 'permalink'
