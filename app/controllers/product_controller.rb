@@ -2,7 +2,7 @@
 
 class ProductController < ApplicationController
   def index
-    @products = Product.order(:ProductName)
+    @products = Product.order(:ProductName).page(params[:page]).per(1)
   end
 
   def show
@@ -11,6 +11,14 @@ class ProductController < ApplicationController
 
   def search_results
     @query = params[:query]
-    @searchProduct = Product.where('ProductName LIKE ?', "%#{@query}%")
+    @searchProduct. Product.all
+
+    @searchProduct = @searchProduct.where('ProductName LIKE ?', "%#{@query}%")
+
+    @searchProduct = @searchProduct.where('category_id = ?', params[:category_id])
+  end
+
+  def category_results
+    @categoryProduct = Product.where('GroupType ')
   end
 end

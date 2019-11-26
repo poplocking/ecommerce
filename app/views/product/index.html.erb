@@ -4,4 +4,5 @@
 <p><%= link_to product.ProductName, controller: "product", action: "show", id: product.id %> </p>
 
 <p><%= image_tag(product.image, alt: "Image")%></p>
+<%= paginate @products %>
 <% end %>
