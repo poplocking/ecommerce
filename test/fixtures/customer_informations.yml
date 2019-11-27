@@ -10,7 +10,8 @@ one:
   city: MyString
   province: MyString
   postalCode: MyString
-  phone: 
+  phone: 1
+  Provinces: one
 
 two:
   customer_id: 1
@@ -22,4 +23,5 @@ two:
   city: MyString
   province: MyString
   postalCode: MyString
-  phone: 
+  phone: 1
+  Provinces: two
