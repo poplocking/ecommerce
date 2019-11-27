@@ -2,6 +2,9 @@
 
 class ProductController < ApplicationController
   # before_action :authenticate_user!, except: [:index, show]
+  before_action :initialize_session
+  before_action :load_cart
+
   def index
     @products = Product.order(:ProductName).page(params[:page]).per(1)
   end
@@ -10,12 +13,36 @@ class ProductController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def add_to_cart
+    id = params[:id].to_i
+    session[:cart] << id unless session[:cart].include?(id)
+    redirect_to root_path
+  end
+
+  def remove_from_cart
+    id = params[:id].to_i
+    session[:cart].delete(id)
+    redirect_to root_path
+  end
+
+  def initialize_session
+    session[:cart] ||= []
+  end
+
+  def load_cart
+    @cart = Product.find(session[:cart])
+  end
+
   def search_results
     @query = params[:query]
     @searchProduct = Product.all
 
     @searchProduct = @searchProduct.where('ProductName LIKE ?', "%#{@query}%")
 
-    @searchProduct = @searchProduct.where('category_id = ?', params[:category_id])
+    if params[:category_id] == 1
+      puts @searchProduct = @searchProduct.where('category_id LIKE ?', category_url = 1)
+    elsif params[:category_id] == 2
+      puts @searchProduct = @searchProduct.where('category_id LIKE ?', category_url = 2)
+    end
   end
 end

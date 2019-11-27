@@ -3,6 +3,8 @@
 Rails.application.routes.draw do
   devise_for :users
   get '/static/:permalink', to: 'page#permalink', as: 'permalink'
+  post 'product/add_to_cart/:id', to: 'product#add_to_cart', as: 'add_to_cart'
+  delete 'product/remove_From_cart/:id', to: 'product#remove_from_cart', as: 'remove_from_cart'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

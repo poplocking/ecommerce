@@ -42,7 +42,7 @@
   <%= label_tag(:query, "Search for:") %>
   <%= text_field_tag(:query) %>
 
-  <%= collection_select(:categorys, :category_id, Category.all, :id, :name, {}, { :multiple => false})%>
+  <%= collection_select(:categorys, :category_id, Category.all, :id, :name, :include_blank => true)%>
   <%= submit_tag("Search") %>
 <% end %>
     <%= yield %>
