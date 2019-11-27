@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Product do
-  permit_params :product_Id, :ProductName, :GroupType, :Price, :Description, :Quantity, :ProductDetails, :tracklist, :image
+  permit_params :product_Id, :ProductName, :GroupType, :Price, :Description, :Quantity, :ProductDetails, :tracklist, :image, :category_id
 
   form do |f|
     f.semantic_errors

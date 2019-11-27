@@ -1,2 +1,10 @@
-<h1>Categorys#show</h1>
-<p>Find me in app/views/categorys/show.html.erb</p>
+<p><%= @category.name %> </p>
+
+<%  @category.products.each do |product|%>
+  <h1><%= link_to product.ProductName, controller: "product", action: "show", id: product.id %> </h1>
+  <p><%= image_tag(product.image, alt: "Image")%></p>
+  <p><%=  product.Price%></p>
+   <p><%=  product.Description%></p>
+    <p><%= product.ProductDetails%></p>
+
+<%end%>

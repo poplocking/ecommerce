@@ -11,14 +11,10 @@ class ProductController < ApplicationController
 
   def search_results
     @query = params[:query]
-    @searchProduct. Product.all
+    @searchProduct = Product.all
 
     @searchProduct = @searchProduct.where('ProductName LIKE ?', "%#{@query}%")
 
-    @searchProduct = @searchProduct.where('category_id = ?', params[:category_id])
-  end
-
-  def category_results
-    @categoryProduct = Product.where('GroupType ')
+    #  @searchProduct = @searchProduct.where('category_id = ?', params[:category_id])
   end
 end

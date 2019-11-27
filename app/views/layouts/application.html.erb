@@ -23,6 +23,8 @@
     <h3>Categories</h3>
     <nav>
       <ul>
+        <li><%= link_to 'BoyGroup', category_path(@category = 1)%></li>
+        <li><%= link_to 'GirlGroup', category_path(@category = 2)%></li>
       </ul>
     </nav>
   </header>
@@ -30,7 +32,8 @@
 <%= form_with(url: search_results_product_index_path, method: "get", local: true) do %>
   <%= label_tag(:query, "Search for:") %>
   <%= text_field_tag(:query) %>
- <!--  <%= select_tag  :query, options_for_select(["Boy", "Girl","All Groups"])%>-->
+
+  <%= select_tag  :categoryResult, options_for_select(@category)%>
   <%= submit_tag("Search") %>
 <% end %>
     <%= yield %>
