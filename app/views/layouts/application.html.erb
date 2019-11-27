@@ -33,7 +33,7 @@
   <%= label_tag(:query, "Search for:") %>
   <%= text_field_tag(:query) %>
 
-  <%= select_tag  :categoryResult, options_for_select(@category)%>
+  <%= collection_select(:categorys, :category_id, Category.all, :id, :name, {}, { :multiple => false})%>
   <%= submit_tag("Search") %>
 <% end %>
     <%= yield %>
