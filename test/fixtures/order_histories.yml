@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_id: 1
+  payment_method: MyString
+  address: MyString
+  subtotal: 1.5
+  shipping_total: 1.5
+  total: 1.5
+  quantity: 1
+  price: 1.5
+  product_total_price: 1.5
+  carrier_string: MyString
+  customer_information: one
+
+two:
+  order_id: 1
+  payment_method: MyString
+  address: MyString
+  subtotal: 1.5
+  shipping_total: 1.5
+  total: 1.5
+  quantity: 1
+  price: 1.5
+  product_total_price: 1.5
+  carrier_string: MyString
+  customer_information: two

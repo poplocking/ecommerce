@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_063537) do
+ActiveRecord::Schema.define(version: 2019_11_28_204421) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 2019_11_27_063537) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id"
   end
 
   create_table "customer_informations", force: :cascade do |t|
@@ -80,13 +79,36 @@ ActiveRecord::Schema.define(version: 2019_11_27_063537) do
     t.integer "Provinces_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.index ["Provinces_id"], name: "index_customer_informations_on_Provinces_id"
+    t.index ["email"], name: "index_customer_informations_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_customer_informations_on_reset_password_token", unique: true
   end
 
   create_table "group_types", force: :cascade do |t|
     t.string "GroupType"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "order_histories", force: :cascade do |t|
+    t.integer "order_id"
+    t.string "payment_method"
+    t.string "address"
+    t.float "subtotal"
+    t.float "shipping_total"
+    t.float "total"
+    t.integer "quantity"
+    t.float "price"
+    t.float "product_total_price"
+    t.string "carrier_string"
+    t.integer "customer_information_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_information_id"], name: "index_order_histories_on_customer_information_id"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -132,5 +154,6 @@ ActiveRecord::Schema.define(version: 2019_11_27_063537) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "customer_informations", "Provinces", column: "Provinces_id"
+  add_foreign_key "order_histories", "customer_informations"
   add_foreign_key "products", "categories"
 end
