@@ -37,12 +37,8 @@ class ProductController < ApplicationController
     @query = params[:query]
     @searchProduct = Product.all
 
-    @searchProduct = @searchProduct.where('ProductName LIKE ?', "%#{@query}%")
+    @searchProduct = @searchProduct.where('ProductName LIKE ?', "%#{@query}%") if @query.present?
 
-    if params[:category_id] == 1
-      puts @searchProduct = @searchProduct.where('category_id LIKE ?', category_url = 1)
-    elsif params[:category_id] == 2
-      puts @searchProduct = @searchProduct.where('category_id LIKE ?', category_url = 2)
-    end
+    @searchProduct = @searchProduct.where(category_id: params[:categorys][:category_id]) if @query.present?
   end
 end

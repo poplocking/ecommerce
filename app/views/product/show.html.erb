@@ -3,7 +3,9 @@
 
 <div class="card-image">
   <figure class="image is-4by3">
-  <%= image_tag url_for(@product.image)%>
+  <%= image_tag url_for(@product.image.variant(resize: "500x500"))%>
+
+
   </figure>
 </div>
 <% end %>

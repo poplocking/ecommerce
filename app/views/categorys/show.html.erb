@@ -2,7 +2,7 @@
 
 <%  @category.products.each do |product|%>
   <h1><%= link_to product.ProductName, controller: "product", action: "show", id: product.id %> </h1>
-  <p><%= image_tag(product.image, alt: "Image")%></p>
+  <p><%= image_tag(product.image.variant(resize: "500x500"), alt: "Image")%></p>
   <p><%=  product.Price%></p>
    <p><%=  product.Description%></p>
     <p><%= product.ProductDetails%></p>

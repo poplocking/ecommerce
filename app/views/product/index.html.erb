@@ -15,12 +15,8 @@
 <% @products.each do |product| %>
 <p><%= link_to product.ProductName, controller: "product", action: "show", id: product.id %> </p>
 
-<p><%= image_tag(product.image, alt: "Image")%></p>
-<% if @cart.include?(product)%>
-  <p><%= button_to 'Remove From Cart', remove_from_cart_path(product), method: :delete%></p>
-<% else %>
+<p><%= image_tag(product.image.variant(resize: "500x500"), alt: "Image")%></p>
 <p>Quantity - <%= number_field_tag 'quantity'%> </p>
 <p><%= link_to 'Add To Cart', add_to_cart_path(product.id), method: :post %> </p>
-<% end %>
 <%= paginate @products %>
 <% end %>
