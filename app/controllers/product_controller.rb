@@ -6,7 +6,7 @@ class ProductController < ApplicationController
   before_action :load_cart
 
   def index
-    @products = Product.order(:ProductName).page(params[:page]).per(1)
+    @products = Product.order(:ProductName).page(params[:page]).per(2)
   end
 
   def show

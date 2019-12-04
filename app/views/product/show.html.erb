@@ -1,11 +1,14 @@
-<h3><%= @product.ProductName %></h3>
+<h3 class="title is-4"><%= @product.ProductName %></h3>
 <% if @product.image.present? %>
 
+
+<div class="container is-widescreen">
+<div class="card product">
+  <div class="card-content">
 <div class="card-image">
-  <figure class="image is-4by3">
-  <%= image_tag url_for(@product.image.variant(resize: "500x500"))%>
-
-
-  </figure>
+  <%= image_tag url_for(@product.image.variant(resize: "600x600"))%>
 </div>
 <% end %>
+</div>
+</div>
+</div>

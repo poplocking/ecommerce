@@ -47,7 +47,7 @@ group :development do
   gem 'devise'
   gem 'faker'
   gem 'breadcrumbs_on_rails'
-
+  gem "bulma-rails", "~> 0.8.0"
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
 end
