@@ -17,7 +17,6 @@
     <% end %>
 </p>
 </details>
-
       <div class="container is-widescreen">
         <div class="card product">
           <div class="card-content">
@@ -25,9 +24,10 @@
             <% @products.each do |product| %>
 
               <p class="title is-4"><%= link_to product.ProductName, controller: "product", action: "show", id: product.id, class: 'button-is-link'%> </p>
-
-
               <p><%= image_tag(product.image.variant(resize: "500x500"), alt: "Image")%></p>
+              <p>$<%=  product.Price%></p>
+              <p><%=  product.Description%></p>
+              <p><%= product.ProductDetails%></p>
               <p>Quantity - <%= number_field_tag 'quantity'%> </p>
               <p><%= link_to 'Add To Cart', add_to_cart_path(product.id), method: :post %> </p>
               <% end %>
