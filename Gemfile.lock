@@ -85,6 +85,7 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
+    breadcrumbs_on_rails (3.0.1)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.29.0)
@@ -167,6 +168,7 @@ GEM
     nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    pg (1.1.4)
     polyamorous (2.3.0)
       activerecord (>= 5.0)
     public_suffix (4.0.1)
@@ -295,6 +297,7 @@ DEPENDENCIES
   activeadmin
   bootsnap (>= 1.4.2)
   bootstrap-sass
+  breadcrumbs_on_rails
   byebug
   capybara (>= 2.15)
   devise
@@ -303,6 +306,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   kaminari
   listen (>= 3.0.5, < 3.2)
+  pg
   puma (~> 3.11)
   rails (~> 6.0.0)
   sass-rails (~> 5)
