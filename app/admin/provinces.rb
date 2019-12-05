@@ -6,7 +6,7 @@ ActiveAdmin.register Province do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :customer_id
+  permit_params :name
   #
   # or
   #

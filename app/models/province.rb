@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 class Province < ApplicationRecord
-  # belongs_to :customer_information
+  has_many :customer_informations
 end

@@ -6,7 +6,7 @@ ActiveAdmin.register CustomerInformation do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :customer_id, :firstName, :lastName, :password, :address, :email, :city, :province, :postalCode, :phone, :provinces_id, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at
+  permit_params :customer_id, :firstName, :lastName, :password, :address, :email, :city, :postalCode, :phone, :provinces_id, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at
   #
   # or
   #
