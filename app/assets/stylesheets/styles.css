@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Learning Curve BV";
+  src: url('/assets/LearningCurve')
+}
+
+p, h1 {
+  font-family: "Learning Curve", "Arial Black", sans-serif;
+}

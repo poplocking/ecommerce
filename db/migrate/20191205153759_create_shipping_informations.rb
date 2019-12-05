@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateShippingInformations < ActiveRecord::Migration[6.0]
   def change
     create_table :shipping_informations do |t|
@@ -5,8 +7,8 @@ class CreateShippingInformations < ActiveRecord::Migration[6.0]
       t.string :postal_code
       t.string :city
       t.string :address
-      t.reference :province
-      t.reference :customer_information
+      t.references :province
+      t.references :customer_information
 
       t.timestamps
     end

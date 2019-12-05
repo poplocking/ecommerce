@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_05_152732) do
+ActiveRecord::Schema.define(version: 2019_12_05_153759) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(version: 2019_12_05_152732) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer "cart_id"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -112,6 +119,19 @@ ActiveRecord::Schema.define(version: 2019_12_05_152732) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "shipping_informations", force: :cascade do |t|
+    t.integer "shipping_id"
+    t.string "postal_code"
+    t.string "city"
+    t.string "address"
+    t.integer "province_id"
+    t.integer "customer_information_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_information_id"], name: "index_shipping_informations_on_customer_information_id"
+    t.index ["province_id"], name: "index_shipping_informations_on_province_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
