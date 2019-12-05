@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shipping_id: 1
+  postal_code: MyString
+  city: MyString
+  address: MyString
+  province: 
+  customer_information: 
+
+two:
+  shipping_id: 1
+  postal_code: MyString
+  city: MyString
+  address: MyString
+  province: 
+  customer_information: 
