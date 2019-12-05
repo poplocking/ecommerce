@@ -9,48 +9,54 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+<body>
   <nav class="level">
-      <div class="level-left">
+    <div class="level-left">
         <p class="level-item has-text-centered">
-          <%= link_to 'Home', root_path %>
+          <%= link_to 'Home', root_path, class: 'button is-link is-light' %>
         </p>
         <p class="level-item has-text-centered">
-          <%= link_to 'About', permalink_path(permalink: 'about')%>
+         <%= link_to 'About', permalink_path(permalink: 'about'), class: 'button is-link is-light'%>
         </p>
         <p class="level-item has-text-centered">
-          <%= link_to 'Contact', permalink_path(permalink: 'contact') %>
+         <%= link_to 'Contact', permalink_path(permalink: 'contact'),class: 'button is-link is-light' %>
         </p>
-      </div>
+    </div>
 
-      <div class="level-right">
+  <div class="level-center">
+  <p class="title is-1">K-GALLERY </p>
+  </div>
+
+    <div class="level-right">
         <p class="level-item has-text-centered">
           <% if customer_information_signed_in? %>
-          <%= link_to current_customer_information.email, edit_customer_information_registration_path %>
+           <%= link_to current_customer_information.email, edit_customer_information_registration_path, class: 'button is-primary is-outlined' %>
         </p>
         <p class="level-item has-text-centered">
-          <%= link_to 'Logout', destroy_customer_information_session_path, method: :delete %>
+           <%= link_to 'Logout', destroy_customer_information_session_path, method: :delete, class: 'button is-primary is-outlined' %>
         </p>
           <% else %>
         <p class="level-item has-text-centered">
-          <%= link_to 'Sign Up', new_customer_information_registration_path %>
+          <%= link_to 'Sign Up', new_customer_information_registration_path, class: 'button is-primary is-outlined' %>
         </p>
 
         <p class="level-item has-text-centered">
-          <%= link_to 'Login', new_customer_information_session_path %>
+         <%= link_to 'Login', new_customer_information_session_path, class: 'button is-primary is-outlined' %>
         </p>
+          <% end %>
 
-        <p class="level-item has-text-centered">
+        <p class="level-item">
         <%= form_with(url: search_results_product_index_path, method: "get", local: true) do %>
           <%= label_tag(:query, "Search for:") %>
           <%= text_field_tag(:query) %>
 
-        <%= collection_select(:categorys, :category_id, Category.all, :id, :name)%>
-        <%= submit_tag("Search") %>
-        </div>
-          <% end %>
-          </nav>
 
+        <%= collection_select(:categorys, :category_id, Category.all, :id, :name, :include_blank => 'All')%>
+        <%= submit_tag("Search") %>
+        </form>
+  <% end %>
+   </div>
+</nav>
 
   <aside class="menu">
 
@@ -61,8 +67,7 @@
         <li><%= link_to 'GirlGroup', category_path(@category = 2)%></li>
       </ul>
     </nav>
-  <% end %>
   </aside>
-    <%= yield %>
+   <%= yield %>
   </body>
 </html>

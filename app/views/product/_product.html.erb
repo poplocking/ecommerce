@@ -1,21 +1,8 @@
-<div class = "product">
-
-<div class="card product">
-  <div class="card-content">
  <h1 class="title is-3"><%= link_to product.ProductName, controller: "product", action: "show", id: product.id %> </h1>
-
-
-<div class="container is-widescreen">
-<p>$<%= product.Price %></p>
 
 <% if product.image.present? %>
 
 <div class="card-image">
-  <figure class="image is-4by3">
-  <%= image_tag url_for(product.image)%>
-  </figure>
-</div>
-</div>
-</div>
+  <%= image_tag(product.image.variant(resize: "500x500"), alt: "Image")%>
+  </div>
 <% end %>
-</div>

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[firstName lastName email address])
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[firstName lastName address provinces])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[firstName lastName address province])
   end
 
   def index

@@ -1,5 +1,11 @@
 <p><%= @query %> returned <%= pluralize(@searchProduct.size, 'result')%></p>
 
+
+<div class="card product">
+  <div class="card-content">
   <%= render partial: 'product',
       collection: @searchProduct,
+
       locals: { ProductName_is_link: true} %>
+      </div>
+</div>
