@@ -2,6 +2,6 @@
 
 class AddProvinceToCustomerInformation < ActiveRecord::Migration[6.0]
   def change
-    add_reference :customer_informations, :provinces, null: true, foreign_key: true
+    add_reference :customer_informations, :province
   end
 end

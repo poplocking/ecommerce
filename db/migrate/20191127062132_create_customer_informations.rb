@@ -11,7 +11,6 @@ class CreateCustomerInformations < ActiveRecord::Migration[6.0]
       t.string :province
       t.string :postalCode
       t.integer :phone
-      t.references :Provinces, null: false, foreign_key: true
 
       t.timestamps
     end
