@@ -6,4 +6,5 @@ class CustomerInformation < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :province
+  accepts_nested_attributes_for :province
 end
